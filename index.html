@@ -3,112 +3,146 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Clip & Search — macOS Shortcut</title>
+		<title>Snip & Search — macOS Shortcut</title>
 		<meta
 			name="description"
-			content="Clip & Search is a macOS shortcut that lets you select any part of your screen and instantly reverse image search it on Google Images."
+			content="Snip & Search is a macOS shortcut that lets you select any part of your screen and instantly reverse image search it on Google Images."
 		/>
 		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
-        <header>
-            <img
-                id="shortcutIcon"
-                src="/images/shortcut-icon.png"
-                alt="Clip & Search Shortcut Icon"
-            />
-            <h1>Clip & Search</h1>
-            <p>
-                Take a screenshot of any part of your Mac’s screen, and
-                instantly search it on Google Images.
-            </p>
-        </header>
-        <main>
-			<h2>How it works</h1>
-			<ol>
-                <li>You take a screen clipping of any part of your Mac’s screen</li>
-                <li>This shortcut launches Google Images in Safari, automatically uploads your screen clipping, and performs the Google Image search</li>
-				<li>The results are displayed in Safari, allowing you to find similar images or sources</li>
-                <li>Then it automatically deletes the screen clipping, reducing clutter on your Mac.</li>
-            </ol>
-
-			<h2>How to install</h2>
-			<ol>
-				<li>
-					Click the button below to open the iCloud preview page for
-					the shortcut:
-					<br />
-					<a
-						href="https://www.icloud.com/shortcuts/c3556fe77e2e4a758eade6a0668b875f"
-						target="_blank"
-					>
-						Install Clip & Search
-					</a>
-				</li>
-				<li>
-					On the iCloud page, click the “Get Shortcut” button to open
-					it in the Shortcuts app on your Mac.
-				</li>
-				<li>
-					On first run, macOS may prompt you to grant permissions for
-					screen capture and Safari automation — approve these when
-					prompted.
-				</li>
-			</ol>
-
-			<h2>How to use</h2>
-			<ul>
-				<li>
-					Run the shortcut from the Shortcuts app or assign it a
-					keyboard shortcut.
-				</li>
-				<li>
-					When the crosshair appears, select the part of your screen
-					you want to search.
-				</li>
-				<li>
-					The shortcut will open Safari, navigate to Google Images,
-					and upload the screenshot automatically.
-				</li>
-			</ul>
-
-			<h2>Requirements</h2>
-			<ul>
-				<li>macOS 12 Monterey or later.</li>
-				<li>Safari browser (automation only works with Safari).</li>
-			</ul>
-
-			<h2>Notes</h2>
-			<ul>
-				<li>
-					The shortcut uses AppleScript and system automation — allow
-					the necessary permissions in System Settings → Privacy &
-					Security.
-				</li>
-				<li>
-					If the screenshot is too small, the shortcut will cancel
-					automatically to avoid unintentional triggers.
-				</li>
-				<li>This shortcut only works on macOS, not iPhone or iPad.</li>
-			</ul>
-
-			<h2>Demo</h2>
-			<p>
-				<!-- <img src="thumbnails/clipSearchDemo.gif" alt="Demo of Clip & Search shortcut capturing a screen region and performing a Google Images search" /> -->
-			</p>
-
-			<h2>Source code</h2>
-			<p>
-				View the AppleScript logic and shortcut details on
+		<header>
+			<div class="sectionContent">
+				<img
+					id="shortcutIcon"
+					src="/images/shortcut-icon.png"
+					alt="Snip & Search Shortcut Icon"
+				/>
+				<h1>Snip & Search</h1>
+				<p id="macSubtitle">
+					<span id="appleLogo"></span> MacOS shortcut
+				</p>
+				<br />
+				<p id="description">
+					Screenshot of any part of your Mac’s screen, and instantly
+					search it on Google Images
+				</p id="description">
 				<a
-					href="https://github.com/nikhilNathwani/clip-and-search"
+					class="button"
+					href="https://www.icloud.com/shortcuts/b5897ea6db59406a80dbd3e58228abb7"
 					target="_blank"
-					rel="noopener"
-					>GitHub</a
-				>.
-			</p>
-        </main>
-		<footer>&copy; <span id="year"></span> Nikhil Nathwani</footer>
+				>
+					Install here
+				</a>
+			</div>
+		</header>
+		<main>
+			<div class="sectionContent">
+				<h2>How it works</h2>
+				<ol>
+					<li>
+						You take a screen clipping of any part of your Mac’s
+						screen
+					</li>
+					<li>
+						This shortcut launches Google Images in Safari,
+						automatically uploads your screen clipping, and performs
+						the Google Image search
+					</li>
+					<li>
+						The results are displayed in Safari, allowing you to
+						find similar images or sources
+					</li>
+					<li>
+						Then it automatically deletes the screen clipping,
+						reducing clutter on your Mac.
+					</li>
+				</ol>
+
+				<h2>How to install</h2>
+				<ol>
+					<li>
+						Click the button below to open the iCloud preview page
+						for the shortcut:
+						<br />
+						<a
+							href="https://www.icloud.com/shortcuts/b5897ea6db59406a80dbd3e58228abb7"
+							target="_blank"
+						>
+							Install Snip & Search
+						</a>
+					</li>
+					<li>
+						On the iCloud page, click the “Get Shortcut” button to
+						open it in the Shortcuts app on your Mac.
+					</li>
+					<li>
+						On first run, macOS may prompt you to grant permissions
+						for screen capture and Safari automation — approve these
+						when prompted.
+					</li>
+				</ol>
+
+				<h2>How to use</h2>
+				<ul>
+					<li>
+						Run the shortcut from the Shortcuts app or assign it a
+						keyboard shortcut.
+					</li>
+					<li>
+						When the crosshair appears, select the part of your
+						screen you want to search.
+					</li>
+					<li>
+						The shortcut will open Safari, navigate to Google
+						Images, and upload the screenshot automatically.
+					</li>
+				</ul>
+
+				<h2>Requirements</h2>
+				<ul>
+					<li>macOS 12 Monterey or later.</li>
+					<li>Safari browser (automation only works with Safari).</li>
+				</ul>
+
+				<h2>Notes</h2>
+				<ul>
+					<li>
+						The shortcut uses AppleScript and system automation —
+						allow the necessary permissions in System Settings →
+						Privacy & Security.
+					</li>
+					<li>
+						If the screenshot is too small, the shortcut will cancel
+						automatically to avoid unintentional triggers.
+					</li>
+					<li>
+						This shortcut only works on macOS, not iPhone or iPad.
+					</li>
+				</ul>
+
+				<h2>Demo</h2>
+				<p>
+					<!-- <img src="thumbnails/clipSearchDemo.gif" alt="Demo of Snip & Search shortcut capturing a screen region and performing a Google Images search" /> -->
+				</p>
+
+				<h2>Source code</h2>
+				<p>
+					View the AppleScript logic and shortcut details on
+					<a
+						href="https://github.com/nikhilNathwani/clip-and-search"
+						target="_blank"
+						rel="noopener"
+						>GitHub</a
+					>.
+				</p>
+			</div>
+		</main>
+		<footer>
+			<div class="sectionContent">
+				&copy; <span id="year"></span> Nikhil Nathwani
+			</div>
+		</footer>
 
 		<script>
 			document.getElementById("year").textContent =
