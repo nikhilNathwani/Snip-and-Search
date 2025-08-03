@@ -128,9 +128,11 @@ ol {
 }
 
 footer {
-	padding-block: 0.5rem;
+	padding-block: 1rem;
 	font-size: 0.9rem;
-	color: white;
-	background-color: #323232;
+	/* color: white; */
+	/* background-color: #323232; */
+	color: #333;
+	background-color: #f1f1f1;
 	text-align: center;
 }
