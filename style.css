@@ -94,7 +94,7 @@ h2 {
 
 a {
 	color: var(--clr-link);
-	/* text-decoration: none; */
+	text-decoration: none;
 }
 
 a:hover {
@@ -103,7 +103,7 @@ a:hover {
 
 .button {
 	font-size: 1.125rem;
-	text-decoration: none;
+	/* text-decoration: none; */
 	display: inline-block;
 	margin-top: 1.5rem;
 	padding: 0.5rem 2rem;
@@ -151,6 +151,7 @@ footer {
 
 footer a {
 	color: var(--clr-text);
+	text-decoration: underline;
 }
 
 #links {
