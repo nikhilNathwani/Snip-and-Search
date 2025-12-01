@@ -38,13 +38,36 @@
 		</header>
 		<main>
 			<div class="sectionContent">
-				<h2>Requirements</h2>
-				<ul>
-					<li>macOS 12 Monterey or later.</li>
-					<li>Safari browser (comes with macOS)</li>
-				</ul>
+				<h2>See it in action</h2>
+				<video
+					controls
+					width="100%"
+					style="
+						max-width: 800px;
+						border-radius: 8px;
+						border: 2px solid #ccc;
+						box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+					"
+				>
+					<source
+						src="demo/snip-and-search-demo.mp4"
+						type="video/mp4"
+					/>
+					<source
+						src="demo/snip-and-search-demo.mov"
+						type="video/quicktime"
+					/>
+					Your browser does not support the video tag.
+				</video>
+				<p style="margin-top: 0.75rem; font-size: 0.85em; color: #666">
+					<em
+						>In this example: Looking at a standing desk → want to
+						identify the lamp → snip just the lamp → automatic
+						reverse image search on Google Images.</em
+					>
+				</p>
 
-				<h2>How to use</h2>
+				<h2>How to use it</h2>
 				<ol>
 					<li>
 						Run the shortcut from the Shortcuts app.
@@ -60,15 +83,12 @@
 						Click and drag to select the part of your screen you
 						want to search.
 					</li>
-					<!-- <li>
-						The shortcut will automatically open Safari, navigate to Google
-						Images, and upload the screenshot to perform the search.
-					</li> -->
 					<li>
-						The shortcut will automatically:
-						<br />– Launch Safari <br />– Open Google Images <br />–
-						Upload your screenshot <br />– Perform the search
-						<br />– Delete the screenshot afterward
+						The shortcut automatically:
+						<br />– Launches Safari <br />– Opens Google Images
+						<br />– Uploads your screenshot <br />– Performs the
+						reverse image search <br />– Deletes the screenshot
+						afterward
 					</li>
 				</ol>
 
@@ -79,7 +99,7 @@
 						preview page for the shortcut.
 					</li>
 					<li>
-						On the iCloud page, click the “Get Shortcut” button to
+						On the iCloud page, click the "Get Shortcut" button to
 						open it in the Shortcuts app on your Mac.
 					</li>
 					<li>
@@ -88,6 +108,12 @@
 						when prompted.
 					</li>
 				</ol>
+
+				<h2>Requirements</h2>
+				<ul>
+					<li>macOS 12 Monterey or later.</li>
+					<li>Safari browser (comes with macOS)</li>
+				</ul>
 
 				<h2>Notes</h2>
 				<ul>
@@ -104,11 +130,6 @@
 						This shortcut only works on macOS, not iPhone or iPad.
 					</li>
 				</ul>
-
-				<!-- <h2>Demo</h2> -->
-				<p>
-					<!-- <img src="thumbnails/clipSearchDemo.gif" alt="Demo of Snip & Search shortcut capturing a screen region and performing a Google Images search" /> -->
-				</p>
 
 				<h2>Source code</h2>
 				<p>
@@ -146,6 +167,119 @@
 		<script>
 			document.getElementById("year").textContent =
 				new Date().getFullYear();
+
+			// Dark mode toggle via URL parameter
+			const urlParams = new URLSearchParams(window.location.search);
+			const darkMode = urlParams.get("dark") === "true";
+			const darkGrey = urlParams.get("dark") === "grey";
+
+			if (darkMode) {
+				// Dark gradient for header (navy blue)
+				document.documentElement.style.setProperty(
+					"--clr-bgHeader",
+					"linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)"
+				);
+				document.documentElement.style.setProperty(
+					"--clr-bgMain",
+					"#0a0e1a"
+				);
+				document.documentElement.style.setProperty(
+					"--clr-text",
+					"#e0e0e0"
+				);
+				document.documentElement.style.setProperty(
+					"--clr-subtitle",
+					"#b0b0b0"
+				);
+				document.documentElement.style.setProperty(
+					"--clr-link",
+					"#4da3ff"
+				);
+				document.documentElement.style.setProperty(
+					"--clr-accent",
+					"#ffa726"
+				);
+
+				// Apply gradient to header
+				const header = document.querySelector("header");
+				if (header) {
+					header.style.background =
+						"linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)";
+				}
+
+				// Update footer background
+				const footer = document.querySelector("footer");
+				if (footer) {
+					footer.style.backgroundColor = "#16213e";
+				}
+
+				// Update h1 color
+				const h1 = document.querySelector("h1");
+				if (h1) {
+					h1.style.color = "#ffffff";
+				}
+
+				// Update caption color for dark mode
+				const caption = document.querySelector(
+					'p[style*="color: #666"]'
+				);
+				if (caption) {
+					caption.style.color = "#999";
+				}
+			} else if (darkGrey) {
+				// Dark gradient for header (greyscale)
+				document.documentElement.style.setProperty(
+					"--clr-bgHeader",
+					"linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%)"
+				);
+				document.documentElement.style.setProperty(
+					"--clr-bgMain",
+					"#121212"
+				);
+				document.documentElement.style.setProperty(
+					"--clr-text",
+					"#e0e0e0"
+				);
+				document.documentElement.style.setProperty(
+					"--clr-subtitle",
+					"#b0b0b0"
+				);
+				document.documentElement.style.setProperty(
+					"--clr-link",
+					"#4da3ff"
+				);
+				document.documentElement.style.setProperty(
+					"--clr-accent",
+					"#ffa726"
+				);
+
+				// Apply gradient to header
+				const header = document.querySelector("header");
+				if (header) {
+					header.style.background =
+						"linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%)";
+				}
+
+				// Update footer background
+				const footer = document.querySelector("footer");
+				if (footer) {
+					footer.style.backgroundColor = "#2a2a2a";
+				}
+
+				// Update h1 color
+				const h1 = document.querySelector("h1");
+				if (h1) {
+					h1.style.color = "#ffffff";
+				}
+
+				// Update caption color for dark mode
+				const caption = document.querySelector(
+					'p[style*="color: #666"]'
+				);
+				if (caption) {
+					caption.style.color = "#999";
+				}
+			}
 		</script>
 	</body>
 </html>
