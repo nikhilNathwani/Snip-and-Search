@@ -1,0 +1,9 @@
+# macOS system files
+.DS_Store
+
+# Original video files
+*.mov
+
+# Large screenshot files
+Error Screenshot.png
+demo/*.mp4
