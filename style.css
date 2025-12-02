@@ -139,6 +139,32 @@ ol {
 	padding-left: 1.25rem;
 }
 
+li {
+	margin-bottom: 0.75rem;
+}
+
+/* Nested lists for sub-items */
+ol ul,
+ul ul {
+	margin-top: 0.5rem;
+	margin-bottom: 0;
+	font-size: 0.95em;
+	color: var(--clr-subtitle);
+	list-style-type: none;
+}
+
+ol ul li,
+ul ul li {
+	margin-bottom: 0.25rem;
+}
+
+ol ul li::before,
+ul ul li::before {
+	content: "– ";
+	margin-left: -1.2em;
+	margin-right: 0.5em;
+}
+
 footer {
 	padding-block: 1rem;
 	font-size: 0.9rem;
