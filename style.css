@@ -144,23 +144,24 @@ li {
 }
 
 /* Nested lists for sub-items */
+@counter-style dash-bullet {
+	system: cyclic;
+	symbols: "-";
+	suffix: "  ";
+}
+
 .sublist {
-	padding-left: 2.5rem;
-	margin-top: 0.5rem;
-	margin-bottom: 0;
 	font-size: 0.95em;
 	color: var(--clr-subtitle);
-	list-style-type: none;
+
+	list-style-type: dash-bullet;
+
+	padding-left: 2.5rem;
+	margin-top: 0.5rem;
 }
 
 .sublist li {
 	margin-bottom: 0.25rem;
-}
-
-.sublist li::before {
-	content: "– ";
-	margin-left: -1.2em;
-	margin-right: 0.5em;
 }
 
 footer {
