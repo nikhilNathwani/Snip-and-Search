@@ -7,3 +7,8 @@
 # Large screenshot files
 Error Screenshot.png
 demo/*.mp4
+
+# Environment files hold secrets; only the example template is committed
+.env
+.env.*
+!.env.example
