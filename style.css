@@ -1,11 +1,11 @@
 /* Self-hosted Lilita One, Latin subset (SIL Open Font License; see
-   fonts/LilitaOne-OFL.txt). display: block because the title's traced outline
-   only fits this font, so a fallback font must never show inside it. */
+   fonts/LilitaOne-OFL.txt), for the headings. (The header title is drawn as
+   vector shapes, so it doesn't depend on this font loading.) */
 @font-face {
 	font-family: "Lilita One";
 	font-style: normal;
 	font-weight: 400;
-	font-display: block;
+	font-display: swap;
 	src: url("fonts/LilitaOne-latin.woff2") format("woff2");
 	unicode-range:
 		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
@@ -51,13 +51,11 @@ body {
 
 header {
 	text-align: center;
-	padding-block: 3rem 3.25rem;
-	/* A panel hanging from the top of the window: rounded bottom corners,
-	   and capped in width so on wide screens it sits centered with white on
-	   both sides (otherwise the corners get lost at the screen edges). */
-	/* Same width as the headline/video column on wide screens (600px text
-	   column + 4rem breakout on each side), so their edges line up. */
-	max-width: 728px;
+	/* More room above than below, so the logo sits toward the middle and the
+	   button toward the bottom. */
+	padding-block: 5rem 1.75rem;
+	/* A panel hanging from the top of the window, with rounded bottom
+	   corners. On wide screens it's capped (below) and centered. */
 	margin-inline: auto;
 	border-radius: 0 0 var(--header-radius) var(--header-radius);
 	background: var(--clr-bgHeader);
@@ -181,6 +179,13 @@ h2 {
 
 /* The headline, sentence, video and caption share one wider column. */
 @media (min-width: 820px) {
+	/* Same width as the headline/video column (600px text column + 4rem
+	   breakout on each side), so their edges line up. Only from this width
+	   up, where there's room for real margins beside it. */
+	header {
+		max-width: 728px;
+	}
+
 	#intro,
 	#introSub,
 	#demo,
@@ -205,7 +210,7 @@ a:hover {
 .button {
 	font-size: 1.125rem;
 	display: inline-block;
-	margin-top: 2rem;
+	margin-top: 3.25rem;
 	padding: 0.625rem 2.25rem;
 	background-color: #fff;
 	color: var(--clr-accent);
