@@ -99,8 +99,8 @@ header .sectionContent {
 	overflow: visible;
 }
 
-/* Title + platform label sit tight as one group; the button follows after
-   a larger gap. */
+/* Title + platform label sit tight as one group; the button sits well below
+   it, near the bottom of the header. */
 #macSubtitle {
 	margin-top: 0.375rem;
 	/* 20px bold counts as large text (3:1 is enough). */
@@ -110,7 +110,11 @@ header .sectionContent {
 }
 
 #appleLogo {
-	margin-right: 0.125rem;
+	width: auto;
+	height: 1.05em;
+	margin-right: 0.22em;
+	vertical-align: -0.12em;
+	fill: currentColor;
 }
 
 /* The pitch + demo are the page's centerpiece: a short centered headline, a
@@ -181,7 +185,7 @@ a:hover {
 .button {
 	font-size: 1.125rem;
 	display: inline-block;
-	margin-top: 2rem;
+	margin-top: 3rem;
 	padding: 0.625rem 2.25rem;
 	background-color: #fff;
 	color: var(--clr-accent);
