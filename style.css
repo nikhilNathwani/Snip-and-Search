@@ -14,14 +14,15 @@
 }
 
 :root {
-	/* One indigo for the whole page, the Shortcuts app's "Indigo" swatch
-	   (sampled from its color picker), matching the shortcut's icon and the
-	   portfolio project card. It's the page background (solid, so every area
-	   Safari fills to match the page, like overscroll and the landscape side
-	   areas, is the same color) and the headings, links and button text on
-	   white. Contrast is 5.0:1 either way (white on it, or it on white), so
-	   it's safe for body-size link text. */
-	--clr-indigo: #566abf;
+	/* One indigo for the whole page: the average color of the shortcut's
+	   icon (Shortcuts' "Indigo", sampled from Apple's rendered icon), so the
+	   page and icon read as the same blue; it also matches the portfolio
+	   project card. It's the page background (solid, so every area Safari
+	   fills to match the page, like overscroll and the landscape side areas,
+	   is the same color) and the headings, links and button text on white.
+	   Contrast is 5.2:1 either way (white on it, or it on white), so it's
+	   safe for body-size link text. */
+	--clr-indigo: #4f67bd;
 	--clr-bgPage: var(--clr-indigo);
 	--clr-accent: var(--clr-indigo);
 	--clr-link: var(--clr-accent);
