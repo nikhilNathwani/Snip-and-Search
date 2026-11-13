@@ -32,15 +32,18 @@
 			name="twitter:image"
 			content="https://snip-and-search.netlify.app/og-image.png"
 		/>
-		<link rel="icon" type="image/png" href="/images/shortcut-icon.png" />
-		<link rel="apple-touch-icon" href="/images/shortcut-icon.png" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<!-- display=block: the title's traced outline only fits Lilita One, so
-		     don't flash a fallback font inside it. -->
+		<link rel="icon" type="image/png" href="images/shortcut-icon.png" />
+		<link rel="apple-touch-icon" href="images/shortcut-icon.png" />
+		<link rel="canonical" href="https://snip-and-search.netlify.app/" />
+		<!-- Self-hosted Lilita One (Latin subset, ~11 KB; @font-face in
+		     style.css). Preloaded so the title, whose traced outline only fits
+		     this font, appears as early as possible. -->
 		<link
-			rel="stylesheet"
-			href="https://fonts.googleapis.com/css2?family=Lilita+One&display=block"
+			rel="preload"
+			href="fonts/LilitaOne-latin.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
 		/>
 		<link rel="stylesheet" href="style.css" />
 	</head>
@@ -92,6 +95,7 @@
 				>
 					Install here
 				</a>
+				<p id="ctaNote">Free · macOS 12 or later</p>
 			</div>
 		</header>
 		<main>
@@ -101,14 +105,20 @@
 					Take a screenshot on your Mac and automatically search it on
 					Google Images.
 				</p>
-				<video id="demo" controls width="100%">
+				<!-- The demo has no audio, so it autoplays muted on a loop like a
+				     GIF; controls stay so it can be paused or scrubbed. -->
+				<video
+					id="demo"
+					autoplay
+					muted
+					loop
+					playsinline
+					controls
+					width="100%"
+				>
 					<source
 						src="https://github.com/nikhilNathwani/Snip-and-Search/releases/download/v1.0.0/snip-and-search-demo.mp4"
 						type="video/mp4"
-					/>
-					<source
-						src="demo/snip-and-search-demo.mov"
-						type="video/quicktime"
 					/>
 					Your browser does not support the video tag.
 				</video>
@@ -227,6 +237,13 @@
 		<script>
 			document.getElementById("year").textContent =
 				new Date().getFullYear();
+
+			// Respect "reduce motion": don't autoplay the demo for those users.
+			if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+				const demo = document.getElementById("demo");
+				demo.removeAttribute("autoplay");
+				demo.pause();
+			}
 		</script>
 	</body>
 </html>

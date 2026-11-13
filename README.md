@@ -13,6 +13,7 @@ A single static page with no build step or dependencies:
 index.html      # Page content + meta/Open Graph tags
 style.css
 images/         # Shortcut icon (also the favicon)
+fonts/          # Self-hosted Lilita One + its license
 og-image.png    # Social preview image
 ```
 
@@ -20,4 +21,6 @@ The header title (Lilita One with a dashed "cut line" outline) is copied from th
 
 To preview locally, open `index.html` in a browser (or serve the folder with any static server, e.g. `npx http-server .`). Netlify publishes the repo as-is.
 
-The page's demo video is served from the repo's GitHub Release (`v1.0.0`), not from this folder: the files in `demo/` are gitignored (too large for the repo) and exist only locally. The page's second `<source>` (`demo/snip-and-search-demo.mov`) therefore 404s on the live site; browsers only fall back to it if the Release URL fails.
+The page's demo video is served from the repo's GitHub Release (`v1.0.0`), not from this folder: the files in `demo/` are gitignored (too large for the repo) and exist only locally.
+
+The Lilita One font is self-hosted in `fonts/` (Latin subset from Google Fonts, under the SIL Open Font License in `fonts/LilitaOne-OFL.txt`).

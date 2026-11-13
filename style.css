@@ -1,3 +1,18 @@
+/* Self-hosted Lilita One, Latin subset (SIL Open Font License; see
+   fonts/LilitaOne-OFL.txt). display: block because the title's traced outline
+   only fits this font, so a fallback font must never show inside it. */
+@font-face {
+	font-family: "Lilita One";
+	font-style: normal;
+	font-weight: 400;
+	font-display: block;
+	src: url("fonts/LilitaOne-latin.woff2") format("woff2");
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+		U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+		U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 :root {
 	/* Orange from the shortcut's icon, matching the portfolio project card.
 	   --clr-accent is 5.3:1 on white, so it's safe for body-size link text
@@ -26,16 +41,12 @@ body {
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
 		Helvetica, Arial, sans-serif;
 	font-size: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
-	margin: 0 auto;
-	/* padding: 0 1rem; */
 	line-height: 1.6;
 }
 
 header {
 	text-align: center;
-	margin-inline: auto;
 	padding-block: 3rem;
-	/* max-width: 400px; */
 	background: var(--clr-bgHeader);
 	color: #fff;
 }
@@ -48,7 +59,7 @@ main {
 .sectionContent {
 	max-width: 600px;
 	margin: 0 auto;
-	padding: 1rem 1rem;
+	padding: 1rem;
 }
 
 /* ~600px of text (roughly 60–70 characters a line at body size), so the column
@@ -121,8 +132,6 @@ header .sectionContent {
 	text-wrap: balance;
 }
 
-/* Extra room after the demo so it reads as its own block before the
-   step-by-step sections start. */
 #caption {
 	margin-top: 0.75rem;
 	font-size: 0.85em;
@@ -185,19 +194,25 @@ a:hover {
 
 .button:hover {
 	background-color: #fff3ea;
-	text-decoration: none;
 }
 
 .button:active {
 	transform: scale(0.95);
 }
 
-img {
-	max-width: 100%;
-	height: auto;
-	margin-top: 1rem;
-	border-radius: 8px;
-	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+/* A clear white ring on the orange header for keyboard users (browsers'
+   default ring is thin and blue, which barely shows here). */
+.button:focus-visible {
+	outline: 3px solid #fff;
+	outline-offset: 3px;
+}
+
+/* Small reassurance under the button; white on the header's darker lower
+   half is ~4.7:1. */
+#ctaNote {
+	margin-top: 0.875rem;
+	font-size: 0.9375rem;
+	font-weight: 500;
 }
 
 ul,
@@ -219,9 +234,7 @@ li {
 .sublist {
 	font-size: 0.95em;
 	color: var(--clr-subtitle);
-
 	list-style-type: dash-bullet;
-
 	padding-left: 2.5rem;
 	margin-top: 0.5rem;
 }
@@ -233,8 +246,6 @@ li {
 footer {
 	padding-block: 1rem;
 	font-size: 0.9rem;
-	/* color: white; */
-	/* background-color: #323232; */
 	color: var(--clr-subtitle);
 	/* Same cream as #details, so the two read as one closing band. */
 	background-color: var(--clr-bgCream);
@@ -243,7 +254,6 @@ footer {
 
 footer a {
 	color: var(--clr-accent);
-	text-decoration: underline;
 }
 
 #links {
