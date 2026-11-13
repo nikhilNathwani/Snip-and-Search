@@ -15,13 +15,15 @@
 
 :root {
 	/* Indigo from the shortcut's icon (Shortcuts' "Indigo"), matching the
-	   portfolio project card. The header copies the icon's own top-to-bottom
-	   gradient, sampled from Apple's rendered icon; white text on it is
-	   4.6–5.9:1. --clr-accent is the icon's bottom color: 5.9:1 on white,
-	   so it's safe for body-size link text. */
+	   portfolio project card. --clr-accent is the darkest indigo in Apple's
+	   rendered icon: 5.9:1 on white, so it's safe for body-size link text. */
 	--clr-accent: #425bb8;
 	--clr-link: var(--clr-accent);
-	--clr-bgHeader: linear-gradient(180deg, #5c72c2, #425bb8);
+	/* The page background: one solid indigo, the Shortcuts app's "Indigo"
+	   swatch (sampled from its color picker). Solid, so every area Safari
+	   fills to match the page (overscroll, landscape side areas, toolbar
+	   tint) is the same color. White text on it is 5.0:1. */
+	--clr-bgPage: #566abf;
 	--clr-border: #d6dcf0;
 	--font-display: "Lilita One", -apple-system, BlinkMacSystemFont, sans-serif;
 	--clr-bgMain: white;
@@ -40,27 +42,12 @@
 	padding: 0;
 }
 
-/* Safari fills the area revealed by overscroll (pull-to-refresh at the
-   top, bounce at the bottom) and tints its toolbar from the page's background
-   color; depending on the version it reads the root's or the body's. Both are
-   the icon's top indigo, matching theme-color in index.html. */
-html {
-	background-color: #5c72c2;
+html,
+body {
+	background-color: var(--clr-bgPage);
 }
 
-/* The page itself is one gradient over that color: the icon's top indigo
-   at the very top, fading to its bottom indigo behind the header, solid
-   behind the card, and back to the top indigo behind the footer, so both
-   ends meet the overscroll color seamlessly. */
 body {
-	background-color: #5c72c2;
-	background-image: linear-gradient(
-		180deg,
-		#5c72c2 0,
-		#425bb8 24rem,
-		#425bb8 calc(100% - 16rem),
-		#5c72c2 100%
-	);
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
 		Helvetica, Arial, sans-serif;
 	font-size: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
@@ -263,7 +250,7 @@ a:hover {
 	outline-offset: 3px;
 }
 
-/* Small reassurance under the button; white on the indigo there is ~5.5:1. */
+/* Small reassurance under the button; white on the indigo is 5.0:1. */
 #ctaNote {
 	margin-top: 0.875rem;
 	font-size: 0.9375rem;
@@ -298,7 +285,7 @@ li {
 	margin-bottom: 0.25rem;
 }
 
-/* Footer sits on the indigo below the card (white on #425bb8 is 5.9:1). */
+/* Footer sits on the indigo below the card. */
 footer {
 	padding-block: 1.5rem 2rem;
 	font-size: 0.9rem;
