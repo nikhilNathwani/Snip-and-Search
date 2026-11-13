@@ -120,32 +120,34 @@ header .sectionContent {
 	fill: currentColor;
 }
 
-/* The pitch + demo are the page's centerpiece: a short centered headline, a
-   one-sentence explanation, then the video, which breaks out of the text
-   column on wider screens. */
+/* The pitch + demo are the page's centerpiece: a big left-aligned headline
+   (the page's largest text), a one-sentence explanation, then the video. On
+   wider screens all of it breaks out of the text column together, so the
+   headline's left edge lines up with the video's. */
 #intro {
-	margin-block: 2.75rem 0.5rem;
-	/* The page's biggest text: the main marketing line. */
-	font-size: clamp(2.5rem, 1.6rem + 3vw, 3.5rem);
-	line-height: 1.1;
-	text-align: center;
+	margin-block: 3rem 0.75rem;
+	font-size: clamp(2.75rem, 1.4rem + 5vw, 4.75rem);
+	line-height: 1;
+	letter-spacing: 0.005em;
+}
+
+/* Each sentence wraps as a unit: two clean lines on phones, never a lone
+   "it." */
+#intro span {
+	display: inline-block;
 }
 
 #introSub {
-	margin-bottom: 1.5rem;
+	margin-bottom: 1.75rem;
 	font-size: 1.25rem;
 	line-height: 1.45;
 	color: #333;
-	text-align: center;
-	text-wrap: balance;
 }
 
 #caption {
 	margin-top: 0.75rem;
 	font-size: 0.85em;
 	color: #666;
-	text-align: center;
-	text-wrap: balance;
 }
 
 h2 {
@@ -165,8 +167,10 @@ h2 {
 	box-shadow: 0 6px 20px rgba(30, 45, 110, 0.15);
 }
 
-/* The caption spans the same width as the video. */
+/* The headline, sentence, video and caption share one wider column. */
 @media (min-width: 820px) {
+	#intro,
+	#introSub,
 	#demo,
 	#caption {
 		width: calc(100% + 8rem);
