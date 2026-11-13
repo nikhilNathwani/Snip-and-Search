@@ -26,9 +26,9 @@
 	--clr-border: #d6dcf0;
 	--font-display: "Lilita One", -apple-system, BlinkMacSystemFont, sans-serif;
 	--clr-bgMain: white;
-	/* The header's bottom-corner radius: 24px on phones, scaling with width
-	   up to 48px on big monitors. */
-	--header-radius: clamp(1.5rem, 3vw, 3rem);
+	/* Corner radius of the white page card: 24px on phones, scaling with
+	   width up to 40px on big monitors. */
+	--card-radius: clamp(1.5rem, 2.5vw, 2.5rem);
 	--clr-text: #111;
 	--clr-subtitle: #555;
 }
@@ -41,8 +41,13 @@
 	padding: 0;
 }
 
+/* The whole page sits on the icon's indigo: its gradient across the top
+   (behind the header), then its bottom color all the way down, so the white
+   content card below reads as a page resting on it. */
 body {
-	background-color: var(--clr-bgMain);
+	background:
+		var(--clr-bgHeader) top / 100% 24rem no-repeat,
+		#425bb8;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
 		Helvetica, Arial, sans-serif;
 	font-size: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
@@ -52,19 +57,28 @@ body {
 header {
 	text-align: center;
 	/* More room above than below, so the logo sits toward the middle and the
-	   button toward the bottom. */
-	padding-block: 5rem 1.75rem;
-	/* A panel hanging from the top of the window, with rounded bottom
-	   corners. On wide screens it's capped (below) and centered. */
-	margin-inline: auto;
-	border-radius: 0 0 var(--header-radius) var(--header-radius);
-	background: var(--clr-bgHeader);
+	   button sits just above the card. */
+	padding-block: 4.5rem 2.75rem;
 	color: #fff;
 }
 
+/* The content is a white card with rounded corners on the indigo page.
+   overflow: hidden keeps the tinted details band inside the bottom corners. */
 main {
+	overflow: hidden;
+	border-radius: var(--card-radius);
 	background-color: var(--clr-bgMain);
 	color: var(--clr-text);
+}
+
+/* On wide screens the card is capped and centered, with indigo on both
+   sides. (Below this width it spans the screen; the cap would only leave
+   thin slivers.) */
+@media (min-width: 1000px) {
+	main {
+		max-width: 920px;
+		margin-inline: auto;
+	}
 }
 
 .sectionContent {
@@ -179,13 +193,6 @@ h2 {
 
 /* The headline, sentence, video and caption share one wider column. */
 @media (min-width: 820px) {
-	/* Same width as the headline/video column (600px text column + 4rem
-	   breakout on each side), so their edges line up. Only from this width
-	   up, where there's room for real margins beside it. */
-	header {
-		max-width: 728px;
-	}
-
 	#intro,
 	#introSub,
 	#demo,
@@ -236,8 +243,7 @@ a:hover {
 	outline-offset: 3px;
 }
 
-/* Small reassurance under the button; white on the header's lower half is
-   ~5.5:1. */
+/* Small reassurance under the button; white on the indigo there is ~5.5:1. */
 #ctaNote {
 	margin-top: 0.875rem;
 	font-size: 0.9375rem;
@@ -272,17 +278,16 @@ li {
 	margin-bottom: 0.25rem;
 }
 
+/* Footer sits on the indigo below the card (white on #425bb8 is 5.9:1). */
 footer {
-	padding-block: 1rem;
+	padding-block: 1.5rem 2rem;
 	font-size: 0.9rem;
-	color: var(--clr-subtitle);
-	/* Same tint as #details, so the two read as one closing band. */
-	background-color: var(--clr-bgTint);
+	color: #fff;
 	text-align: center;
 }
 
 footer a {
-	color: var(--clr-accent);
+	color: #fff;
 }
 
 #links {
