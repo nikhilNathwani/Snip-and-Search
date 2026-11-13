@@ -12,7 +12,7 @@ A single static page with no build step or dependencies:
 ```text
 index.html      # Page content + meta/Open Graph tags
 style.css
-images/         # Shortcut icon (also the favicon)
+images/         # Shortcut icon (512px) + rounded favicon
 fonts/          # Self-hosted Lilita One + its license
 og-image.png    # Social preview image
 ```
@@ -24,3 +24,5 @@ To preview locally, open `index.html` in a browser (or serve the folder with any
 The page's demo video is served from the repo's GitHub Release (`v1.0.0`), not from this folder: the files in `demo/` are gitignored (too large for the repo) and exist only locally.
 
 The Lilita One font is self-hosted in `fonts/` (Latin subset from Google Fonts, under the SIL Open Font License in `fonts/LilitaOne-OFL.txt`).
+
+The shortcut icon is rebuilt at 512px to match the one Shortcuts shows (iCloud only serves a 150px copy): the SF Symbol `scissors` (semibold, rendered with AppKit) on the icon's indigo gradient (`#5C72C2` to `#425BB8`), sized and placed to match Apple's rendered icon. `favicon.png` is the same image with Apple's ~8% corner radius.

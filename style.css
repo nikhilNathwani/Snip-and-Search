@@ -14,15 +14,14 @@
 }
 
 :root {
-	/* One indigo for the whole page: the average color of the shortcut's
-	   icon (Shortcuts' "Indigo", sampled from Apple's rendered icon), so the
-	   page and icon read as the same blue; it also matches the portfolio
-	   project card. It's the page background (solid, so every area Safari
-	   fills to match the page, like overscroll and the landscape side areas,
-	   is the same color) and the headings, links and button text on white.
-	   Contrast is 5.2:1 either way (white on it, or it on white), so it's
-	   safe for body-size link text. */
-	--clr-indigo: #4f67bd;
+	/* One indigo for the whole page: the bottom color of the shortcut's
+	   icon (Shortcuts' "Indigo"), so the icon in the header sits on the color
+	   its own gradient fades into; it also matches the portfolio project
+	   card. It's the page background (solid, so every area Safari fills to
+	   match the page, like overscroll and the landscape side areas, is the
+	   same color) and the headings, links and button text on white. Contrast
+	   is 5.9:1 either way (white on it, or it on white). */
+	--clr-indigo: #425bb8;
 	--clr-bgPage: var(--clr-indigo);
 	--clr-accent: var(--clr-indigo);
 	--clr-link: var(--clr-accent);
@@ -58,9 +57,7 @@ body {
 
 header {
 	text-align: center;
-	/* More room above than below, so the logo sits toward the middle and the
-	   button sits just above the card. */
-	padding-block: 4.5rem 2.75rem;
+	padding-block: 3.25rem 2.75rem;
 	color: #fff;
 }
 
@@ -124,6 +121,20 @@ main > .sectionContent {
 
 header .sectionContent {
 	max-width: 560px;
+}
+
+/* The shortcut's icon, above the title: what people will look for in their
+   Shortcuts app after installing. A soft shadow and faint light edge lift it
+   off the matching indigo. */
+#appIcon {
+	display: block;
+	width: 72px;
+	height: 72px;
+	margin: 0 auto 1.125rem;
+	border-radius: 16px;
+	box-shadow:
+		0 6px 18px rgba(20, 30, 80, 0.35),
+		0 0 0 1px rgba(255, 255, 255, 0.18);
 }
 
 /* Logo-sized, so the "Snip it. Search it." headline below is the largest
@@ -252,7 +263,7 @@ a:hover {
 	outline-offset: 3px;
 }
 
-/* Small reassurance under the button; white on the indigo is 5.0:1. */
+/* Small reassurance under the button; white on the indigo is 5.9:1. */
 #ctaNote {
 	margin-top: 0.875rem;
 	font-size: 0.9375rem;
