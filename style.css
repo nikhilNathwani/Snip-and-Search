@@ -14,15 +14,16 @@
 }
 
 :root {
-	/* One indigo for the whole page: the bottom color of the shortcut's
-	   icon (Shortcuts' "Indigo"), so the icon in the header sits on the color
-	   its own gradient fades into; it also matches the portfolio project
-	   card. It's the page background (solid, so every area Safari fills to
-	   match the page, like overscroll and the landscape side areas, is the
-	   same color) and the headings, links and button text on white. Contrast
-	   is 5.9:1 either way (white on it, or it on white). */
+	/* Page background: a neutral near-black (Apple's dark grey), so the
+	   shortcut's indigo icon in the header pops and the white logo and text
+	   stay crisp (white on it is 17:1). Solid, so every area Safari fills to
+	   match the page (overscroll, landscape side areas, toolbar tint via
+	   theme-color) is the same color. */
+	--clr-bgPage: #1c1c1e;
+	/* Accent: the shortcut icon's indigo (its darkest color in Apple's
+	   rendered icon), for headings, links and the button text on white;
+	   5.9:1 on white. */
 	--clr-indigo: #425bb8;
-	--clr-bgPage: var(--clr-indigo);
 	--clr-accent: var(--clr-indigo);
 	--clr-link: var(--clr-accent);
 	--clr-border: #d6dcf0;
@@ -61,7 +62,7 @@ header {
 	color: #fff;
 }
 
-/* The content is a white card with rounded corners on the indigo page.
+/* The content is a white card with rounded corners on the dark page.
    overflow: hidden keeps everything inside the rounded corners. */
 main {
 	overflow: hidden;
@@ -70,7 +71,7 @@ main {
 	color: var(--clr-text);
 }
 
-/* On wide screens the card is capped and centered, with indigo on both
+/* On wide screens the card is capped and centered, with the dark page on both
    sides. (Below this width it spans the screen; the cap would only leave
    thin slivers.) */
 @media (min-width: 1000px) {
@@ -125,7 +126,7 @@ header .sectionContent {
 
 /* The shortcut's icon, above the title: what people will look for in their
    Shortcuts app after installing. A soft shadow and faint light edge lift it
-   off the matching indigo. */
+   off the dark page. */
 #appIcon {
 	display: block;
 	width: 72px;
@@ -256,14 +257,14 @@ a:hover {
 	transform: scale(0.95);
 }
 
-/* A clear white ring on the indigo header for keyboard users (browsers'
+/* A clear white ring on the dark header for keyboard users (browsers'
    default ring is thin and blue, which barely shows here). */
 .button:focus-visible {
 	outline: 3px solid #fff;
 	outline-offset: 3px;
 }
 
-/* Small reassurance under the button; white on the indigo is 5.9:1. */
+/* Small reassurance under the button. */
 #ctaNote {
 	margin-top: 0.875rem;
 	font-size: 0.9375rem;
@@ -298,7 +299,7 @@ li {
 	margin-bottom: 0.25rem;
 }
 
-/* Footer sits on the indigo below the card. */
+/* Footer sits on the dark page below the card. */
 footer {
 	padding-block: 1.5rem 2rem;
 	font-size: 0.9rem;
