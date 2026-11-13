@@ -3,7 +3,7 @@
 Landing page for **Snip & Search**, a free macOS Shortcut: select any part of your screen and it's reverse-image-searched on Google Images.
 
 - Live site: https://snip-and-search.netlify.app/
-- Install the Shortcut: https://www.icloud.com/shortcuts/b5897ea6db59406a80dbd3e58228abb7
+- Install the Shortcut: https://www.icloud.com/shortcuts/0d8c585da8954e35b6407883fbb75221
 
 ## Project
 
