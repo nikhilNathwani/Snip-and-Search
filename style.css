@@ -51,11 +51,13 @@ body {
 
 header {
 	text-align: center;
-	padding-block: 4rem 4.5rem;
+	padding-block: 3rem 3.25rem;
 	/* A panel hanging from the top of the window: rounded bottom corners,
 	   and capped in width so on wide screens it sits centered with white on
 	   both sides (otherwise the corners get lost at the screen edges). */
-	max-width: 1120px;
+	/* Same width as the headline/video column on wide screens (600px text
+	   column + 4rem breakout on each side), so their edges line up. */
+	max-width: 728px;
 	margin-inline: auto;
 	border-radius: 0 0 var(--header-radius) var(--header-radius);
 	background: var(--clr-bgHeader);
@@ -203,7 +205,7 @@ a:hover {
 .button {
 	font-size: 1.125rem;
 	display: inline-block;
-	margin-top: 2.5rem;
+	margin-top: 2rem;
 	padding: 0.625rem 2.25rem;
 	background-color: #fff;
 	color: var(--clr-accent);
