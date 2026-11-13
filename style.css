@@ -1,7 +1,14 @@
 :root {
-	--clr-accent: hsl(31, 80%, 45%); /*  #f8a854 */
-	--clr-link: #0070f3;
-	--clr-bgHeader: #f1f1f1;
+	/* Orange from the shortcut's icon, matching the portfolio project card.
+	   --clr-accent is 5.3:1 on white, so it's safe for body-size link text
+	   as well as headings. */
+	--clr-accent: #a85524;
+	--clr-link: var(--clr-accent);
+	/* A short, straight-down shift within one burnt orange (white text on it:
+	   ~3.9–4.9:1). */
+	--clr-bgHeader: linear-gradient(180deg, #c0652a, #b4561a);
+	--clr-bgCream: #fbf3ec;
+	--font-display: "Lilita One", -apple-system, BlinkMacSystemFont, sans-serif;
 	--clr-bgMain: white;
 	--clr-text: #111;
 	--clr-subtitle: #555;
@@ -29,13 +36,11 @@ header {
 	margin-inline: auto;
 	padding-block: 3rem;
 	/* max-width: 400px; */
-	background-color: var(--clr-bgHeader);
+	background: var(--clr-bgHeader);
+	color: #fff;
 }
 
 main {
-	/* background-color: hsl(31, 92%, 92%); */
-	padding-bottom: 3rem;
-
 	background-color: var(--clr-bgMain);
 	color: var(--clr-text);
 }
@@ -46,84 +51,145 @@ main {
 	padding: 1rem 1rem;
 }
 
-header .sectionContent {
-	max-width: 400px;
-}
-
+/* ~600px of text (roughly 60–70 characters a line at body size), so the column
+   doesn't look cramped beside the wider demo video. */
 main .sectionContent {
+	max-width: 680px;
 	padding-inline: 2.5rem;
 }
 
-img#shortcutIcon {
-	width: 60px;
-	height: 60px;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.14);
-	border-radius: 10px;
-	margin-bottom: 1rem;
-	transform: scale(1.2);
+/* Room below the demo before the cream details band starts. */
+main > .sectionContent {
+	padding-bottom: 3.5rem;
 }
 
+#details {
+	padding-bottom: 1.5rem;
+	background-color: var(--clr-bgCream);
+}
+
+.visuallyHidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
+
+header .sectionContent {
+	max-width: 560px;
+}
+
+#title {
+	display: block;
+	width: 100%;
+	height: auto;
+	overflow: visible;
+}
+
+/* Title + platform label sit tight as one group; the button follows after
+   a larger gap. */
 #macSubtitle {
-	color: var(--clr-subtitle);
-	/* margin-bottom: 1rem; */
+	margin-top: 0.375rem;
+	/* 20px bold counts as large text (3:1 is enough). */
+	font-size: 1.25rem;
+	font-weight: 700;
+	letter-spacing: 0.01em;
 }
 
 #appleLogo {
 	margin-right: 0.125rem;
-	color: #777;
 }
 
-#description {
-	color: #333;
-	color: var(--clr-subtitle);
-	font-size: 1.125rem;
+/* The pitch + demo are the page's centerpiece: a short centered headline, a
+   one-sentence explanation, then the video, which breaks out of the text
+   column on wider screens. */
+#intro {
+	margin-block: 2.75rem 0.5rem;
+	font-size: clamp(2rem, 1.5rem + 2vw, 2.75rem);
+	line-height: 1.15;
+	text-align: center;
+}
+
+#introSub {
 	margin-bottom: 1.5rem;
-	font-style: italic;
+	font-size: 1.25rem;
+	line-height: 1.45;
+	color: #333;
+	text-align: center;
+	text-wrap: balance;
 }
 
-h1 {
-	font-size: 2rem;
-	/* margin-bottom: 0.5rem; */
+/* Extra room after the demo so it reads as its own block before the
+   step-by-step sections start. */
+#caption {
+	margin-top: 0.75rem;
+	font-size: 0.85em;
+	color: #666;
+	text-align: center;
+	text-wrap: balance;
 }
 
 h2 {
-	font-size: 1.5rem;
-	margin-block: 2.5rem 0.75rem;
+	font-family: var(--font-display);
+	font-weight: 400;
+	/* Kept well below #intro so section headings don't compete with it. */
+	font-size: 1.375rem;
+	letter-spacing: 0.01em;
+	margin-block: 2.5rem 0.5rem;
 	color: var(--clr-accent);
+}
+
+#demo {
+	display: block;
+	border: 1px solid #ecd3c0;
+	border-radius: 10px;
+	box-shadow: 0 6px 20px rgba(120, 55, 15, 0.15);
+}
+
+/* The caption spans the same width as the video. */
+@media (min-width: 820px) {
+	#demo,
+	#caption {
+		width: calc(100% + 8rem);
+		max-width: none;
+		margin-inline: -4rem;
+	}
 }
 
 a {
 	color: var(--clr-link);
-	text-decoration: none;
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 0.15em;
 }
 
 a:hover {
-	text-decoration: underline;
+	text-decoration-thickness: 2px;
 }
 
 .button {
 	font-size: 1.125rem;
-	/* text-decoration: none; */
 	display: inline-block;
-	margin-top: 1.5rem;
-	padding: 0.5rem 2rem;
-	background-color: var(--clr-link);
-	color: white;
-	border-radius: 6px;
-	font-weight: 500;
-	/* border-bottom: 3px solid hsl(212, 100%, 35%); */
+	margin-top: 2rem;
+	padding: 0.625rem 2.25rem;
+	background-color: #fff;
+	color: var(--clr-accent);
+	border-radius: 999px;
+	font-weight: 700;
+	text-decoration: none;
+	box-shadow: 0 4px 12px rgba(80, 35, 10, 0.25);
 	transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .button:hover {
-	background-color: rgba(1, 105, 217, 0.9);
+	background-color: #fff3ea;
 	text-decoration: none;
 }
 
 .button:active {
-	background-color: #015dc0;
 	transform: scale(0.95);
-	/* border-bottom: 2px solid hsl(212, 100%, 35%); */
 }
 
 img {
@@ -169,13 +235,14 @@ footer {
 	font-size: 0.9rem;
 	/* color: white; */
 	/* background-color: #323232; */
-	color: var(--clr-text);
-	background-color: var(--clr-bgHeader);
+	color: var(--clr-subtitle);
+	/* Same cream as #details, so the two read as one closing band. */
+	background-color: var(--clr-bgCream);
 	text-align: center;
 }
 
 footer a {
-	color: var(--clr-text);
+	color: var(--clr-accent);
 	text-decoration: underline;
 }
 
