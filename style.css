@@ -40,22 +40,27 @@
 	padding: 0;
 }
 
-/* Safari fills overscroll (pull-to-refresh at the top, bounce at the
-   bottom) with the root background color, one color for both ends; so it's
-   the icon's top indigo, and the page fades back to it at both ends. */
+/* Safari fills the area revealed by overscroll (pull-to-refresh at the
+   top, bounce at the bottom) and tints its toolbar from the page's background
+   color; depending on the version it reads the root's or the body's. Both are
+   the icon's top indigo, matching theme-color in index.html. */
 html {
 	background-color: #5c72c2;
 }
 
-/* The whole page sits on the icon's indigo: its gradient across the top
-   (behind the header), its bottom color down the middle, and the same
-   gradient reversed behind the footer, so both ends meet the overscroll
-   color seamlessly. The white content card reads as a page resting on it. */
+/* The page itself is one gradient over that color: the icon's top indigo
+   at the very top, fading to its bottom indigo behind the header, solid
+   behind the card, and back to the top indigo behind the footer, so both
+   ends meet the overscroll color seamlessly. */
 body {
-	background:
-		var(--clr-bgHeader) top / 100% 24rem no-repeat,
-		linear-gradient(0deg, #5c72c2, #425bb8) bottom / 100% 16rem no-repeat,
-		#425bb8;
+	background-color: #5c72c2;
+	background-image: linear-gradient(
+		180deg,
+		#5c72c2 0,
+		#425bb8 24rem,
+		#425bb8 calc(100% - 16rem),
+		#5c72c2 100%
+	);
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
 		Helvetica, Arial, sans-serif;
 	font-size: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
