@@ -17,12 +17,11 @@
 	/* Indigo from the shortcut's icon (Shortcuts' "Indigo"), matching the
 	   portfolio project card. The header copies the icon's own top-to-bottom
 	   gradient, sampled from Apple's rendered icon; white text on it is
-	   4.6–5.9:1. --clr-accent is the icon's bottom color: 5.9:1 on white and
-	   5.4:1 on the tint, so it's safe for body-size link text. */
+	   4.6–5.9:1. --clr-accent is the icon's bottom color: 5.9:1 on white,
+	   so it's safe for body-size link text. */
 	--clr-accent: #425bb8;
 	--clr-link: var(--clr-accent);
 	--clr-bgHeader: linear-gradient(180deg, #5c72c2, #425bb8);
-	--clr-bgTint: #f3f5fb;
 	--clr-border: #d6dcf0;
 	--font-display: "Lilita One", -apple-system, BlinkMacSystemFont, sans-serif;
 	--clr-bgMain: white;
@@ -63,7 +62,7 @@ header {
 }
 
 /* The content is a white card with rounded corners on the indigo page.
-   overflow: hidden keeps the tinted details band inside the bottom corners. */
+   overflow: hidden keeps everything inside the rounded corners. */
 main {
 	overflow: hidden;
 	border-radius: var(--card-radius);
@@ -94,14 +93,21 @@ main .sectionContent {
 	padding-inline: 2.5rem;
 }
 
-/* Room below the demo before the tinted details band starts. */
+/* Room below the demo, then a hairline across the text column, so the demo
+   reads as its own block before the step-by-step sections. */
 main > .sectionContent {
-	padding-bottom: 3.5rem;
+	padding-bottom: 1.5rem;
 }
 
 #details {
 	padding-bottom: 1.5rem;
-	background-color: var(--clr-bgTint);
+}
+
+#details > .sectionContent::before {
+	content: "";
+	display: block;
+	height: 1px;
+	background-color: var(--clr-border);
 }
 
 .visuallyHidden {
