@@ -16,7 +16,7 @@ images/         # Shortcut icon (512px) + rounded favicon
 og-image.png    # Social preview image
 ```
 
-The "Snip & Search" wordmark in the header is Lilita One (no font file is loaded; the rest of the page uses the system font), matching the portfolio project card (`Personal-Site/scripts/images/templates/snipAndSearch.html`). It's an SVG path in `index.html`, Lilita One's glyph outlines (150px, 2px letter spacing, kerned) rather than live text, so every browser draws it identically. If the wording or font changes, regenerate the path.
+The header shows the shortcut's icon above its name, set in the page's system font (as on Apple's iCloud page for the shortcut), matching the portfolio project card (`Personal-Site/scripts/images/templates/snipAndSearch.html`).
 
 To preview locally, open `index.html` in a browser (or serve the folder with any static server, e.g. `npx http-server .`). Netlify publishes the repo as-is.
 
