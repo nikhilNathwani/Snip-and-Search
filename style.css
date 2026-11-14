@@ -20,13 +20,16 @@
 	   match the page (overscroll, landscape side areas, toolbar tint via
 	   theme-color) is the same color. */
 	--clr-bgPage: #1c1c1e;
-	/* Accent: the shortcut icon's indigo (its darkest color in Apple's
-	   rendered icon), for headings, links and the button text on white;
-	   5.9:1 on white. */
+	/* Color rule: indigo (the darkest color in the shortcut's icon) means
+	   either the shortcut itself (its icon) or "you can click this" (links
+	   and the Install button's text; 5.9:1 on white). Everything else is
+	   neutral, including headings, which use the page's charcoal, so the
+	   icon is the one block of color and links stand out. */
 	--clr-indigo: #425bb8;
 	--clr-accent: var(--clr-indigo);
 	--clr-link: var(--clr-accent);
-	--clr-border: #d6dcf0;
+	--clr-heading: var(--clr-bgPage);
+	--clr-border: #e3e3e8;
 	--font-display: "Lilita One", -apple-system, BlinkMacSystemFont, sans-serif;
 	--clr-bgMain: white;
 	/* Corner radius of the white page card: 24px on phones, scaling with
@@ -134,7 +137,7 @@ header .sectionContent {
 	margin: 0 auto 1.125rem;
 	border-radius: 16px;
 	box-shadow:
-		0 6px 18px rgba(20, 30, 80, 0.35),
+		0 6px 18px rgba(0, 0, 0, 0.4),
 		0 0 0 1px rgba(255, 255, 255, 0.18);
 }
 
@@ -202,14 +205,14 @@ h2 {
 	font-size: 1.375rem;
 	letter-spacing: 0.01em;
 	margin-block: 2.5rem 0.5rem;
-	color: var(--clr-accent);
+	color: var(--clr-heading);
 }
 
 #demo {
 	display: block;
 	border: 1px solid var(--clr-border);
 	border-radius: 10px;
-	box-shadow: 0 6px 20px rgba(30, 45, 110, 0.15);
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
 }
 
 /* The headline, sentence, video and caption share one wider column. */
@@ -245,12 +248,12 @@ a:hover {
 	border-radius: 999px;
 	font-weight: 700;
 	text-decoration: none;
-	box-shadow: 0 4px 12px rgba(20, 30, 80, 0.25);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 	transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .button:hover {
-	background-color: #eef1fb;
+	background-color: #f0f0f2;
 }
 
 .button:active {
