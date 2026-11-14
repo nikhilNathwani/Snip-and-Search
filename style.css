@@ -135,13 +135,20 @@ header .sectionContent {
 	overflow: visible;
 }
 
-/* Title + platform label sit tight as one group; the button sits well below
-   it, near the bottom of the header. */
+/* Secondary text in the header ("macOS shortcut" and the "Free" line):
+   one shared quiet style in light grey, so the wordmark and the button are
+   the main elements. (#c7c7cc is Apple's secondary label grey; ~9:1 on the
+   charcoal.) */
+#macSubtitle,
+#ctaNote {
+	font-size: 0.9375rem;
+	font-weight: 500;
+	color: #c7c7cc;
+}
+
+/* Sits tight under the title as one group; the button sits well below. */
 #macSubtitle {
 	margin-top: 0.25rem;
-	font-size: 1.0625rem;
-	font-weight: 600;
-	letter-spacing: 0.01em;
 }
 
 #appleLogo {
@@ -255,11 +262,9 @@ a:hover {
 	outline-offset: 3px;
 }
 
-/* Small reassurance under the button. */
+/* Small reassurance under the button (style shared with #macSubtitle). */
 #ctaNote {
 	margin-top: 0.875rem;
-	font-size: 0.9375rem;
-	font-weight: 500;
 }
 
 ul,
