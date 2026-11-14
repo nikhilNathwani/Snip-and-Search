@@ -317,6 +317,10 @@
 				});
 			})();
 
+			// iOS Safari only applies :active (the buttons' pressed state) when a
+			// touchstart listener exists.
+			document.addEventListener("touchstart", () => {}, { passive: true });
+
 			// Respect "reduce motion": don't autoplay the demo for those users.
 			if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
 				const demo = document.getElementById("demo");

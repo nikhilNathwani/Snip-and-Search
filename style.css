@@ -233,6 +233,9 @@ a:hover {
 	text-decoration: none;
 	border: 0;
 	cursor: pointer;
+	/* No grey rectangle flash on tap in iOS Safari; :active (below) gives
+	   the press feedback instead. */
+	-webkit-tap-highlight-color: transparent;
 	transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
@@ -265,12 +268,28 @@ a:hover {
 	white-space: nowrap;
 }
 
-.button:hover {
-	background-color: #4d66c4;
+/* Only on devices with a real pointer: touchscreens keep :hover "stuck"
+   after a tap. */
+@media (hover: hover) {
+	.button:hover {
+		background-color: #4d66c4;
+	}
 }
 
+/* Pressed: a slight shrink (iOS needs the touchstart listener in
+   index.html for :active to apply). Skipped for reduced motion. */
 .button:active {
 	transform: scale(0.95);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.button {
+		transition: none;
+	}
+
+	.button:active {
+		transform: none;
+	}
 }
 
 /* A clear white ring on the dark header for keyboard users (browsers'
