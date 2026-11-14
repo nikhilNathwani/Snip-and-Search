@@ -164,7 +164,7 @@ header .sectionContent {
    the main elements. */
 #macSubtitle,
 #ctaNote {
-	font-size: 0.9375rem;
+	font-size: 0.875rem; /* 14px, the caption size */
 	color: var(--clr-secondaryOnDark);
 }
 
