@@ -225,8 +225,16 @@ a:hover {
 	color: #fff;
 	border-radius: 999px;
 	font-weight: 600;
+	font-family: inherit;
 	text-decoration: none;
+	border: 0;
+	cursor: pointer;
 	transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+/* The [hidden] attribute must win over .button's display. */
+.button[hidden] {
+	display: none;
 }
 
 .button:hover {

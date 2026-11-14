@@ -23,3 +23,5 @@ To preview locally, open `index.html` in a browser (or serve the folder with any
 The page's demo video is served from the repo's GitHub Release (`v1.0.0`), not from this folder: the files in `demo/` are gitignored (too large for the repo) and exist only locally.
 
 The shortcut icon is rebuilt at 512px to match the one Shortcuts shows (iCloud only serves a 150px copy): the SF Symbol `scissors` (semibold, rendered with AppKit) on the icon's indigo gradient (`#5C72C2` to `#425BB8`), sized and placed to match Apple's rendered icon. `favicon.png` is the same image with Apple's ~8% corner radius.
+
+On iPhone, iPad, Android and Windows (where the shortcut can't run), a small script in `index.html` swaps the "Install shortcut" button for "Send to my Mac", which opens the share sheet (AirDrop, Messages…) or copies the page link. Only devices that positively identify as one of those switch; anything ambiguous keeps the Install button, so a Mac never sees the wrong one.

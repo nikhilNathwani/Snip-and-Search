@@ -73,6 +73,12 @@
 				>
 					Install shortcut
 				</a>
+				<!-- Shown instead of the Install link on iPhone, iPad, Android and
+				     Windows (see the script at the end), where the shortcut can't
+				     run: sends this page to the visitor's Mac. -->
+				<button id="sendToMac" class="button" type="button" hidden>
+					Send to my Mac
+				</button>
 				<p id="ctaNote">Free · No sign-up · macOS 12+</p>
 			</div>
 		</header>
@@ -134,7 +140,8 @@
 
 					<h2>How to install</h2>
 					<p>
-						Open
+						<span class="onlyNonMac" hidden>On your Mac, open</span
+						><span class="onlyMac">Open</span>
 						<a
 							href="https://www.icloud.com/shortcuts/0d8c585da8954e35b6407883fbb75221"
 							target="_blank"
@@ -209,6 +216,47 @@
 		<script>
 			document.getElementById("year").textContent =
 				new Date().getFullYear();
+
+			// Not on a Mac? The shortcut only runs on macOS, so swap "Install
+			// shortcut" for "Send to my Mac". Only devices that positively identify
+			// as iPhone, iPad, Android or Windows switch; anything ambiguous keeps
+			// the Install link, so a Mac is never shown the wrong button. iPadOS
+			// Safari reports itself as a Mac, but (unlike any Mac) has a touchscreen.
+			(() => {
+				const ua = navigator.userAgent;
+				const isIPad = /Macintosh/.test(ua) && navigator.maxTouchPoints > 1;
+				if (!(/iPhone|iPad|iPod|Android|Windows/.test(ua) || isIPad)) return;
+
+				const install = document.querySelector("header a.button");
+				const send = document.getElementById("sendToMac");
+				install.hidden = true;
+				send.hidden = false;
+				document.getElementById("ctaNote").textContent =
+					"Runs on Mac (macOS 12+) · Free · No sign-up";
+				document.querySelector(".onlyNonMac").hidden = false;
+				document.querySelector(".onlyMac").hidden = true;
+
+				const url = location.origin + location.pathname;
+				send.addEventListener("click", async () => {
+					// Share sheet (AirDrop, Messages, Mail…) where available.
+					if (navigator.share) {
+						try {
+							await navigator.share({ title: "Snip & Search", url });
+							return;
+						} catch (e) {
+							if (e.name === "AbortError") return; // closed the sheet
+						}
+					}
+					// Otherwise copy the link.
+					try {
+						await navigator.clipboard.writeText(url);
+						send.textContent = "Link copied";
+						setTimeout(() => (send.textContent = "Send to my Mac"), 2000);
+					} catch {
+						prompt("Copy this link and open it on your Mac:", url);
+					}
+				});
+			})();
 
 			// Respect "reduce motion": don't autoplay the demo for those users.
 			if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
