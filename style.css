@@ -39,6 +39,21 @@ body {
 	background-color: var(--clr-bgPage);
 }
 
+/* A soft indigo glow behind the header (the icon's color, faint), centered
+   between the icon and the name. "closest-side" sizes the ellipse to the
+   nearest edges, so it fades to exactly nothing at the top and at both
+   sides: every edge stays the solid page color, which Safari matches for
+   overscroll, landscape side areas and the toolbar. */
+body {
+	background-image: radial-gradient(
+		ellipse closest-side at 50% 240px,
+		rgba(66, 91, 184, 0.32),
+		rgba(66, 91, 184, 0)
+	);
+	background-repeat: no-repeat;
+	background-size: 100% 480px;
+}
+
 /* Type system: the system font only: regular (400) for reading, semibold
    (600) for headings and the button, and bold (700) for the product name
    alone. No italics. */
