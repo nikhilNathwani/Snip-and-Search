@@ -35,18 +35,8 @@
 		<link rel="icon" type="image/png" href="images/favicon.png" />
 		<link rel="apple-touch-icon" href="images/shortcut-icon.png" />
 		<link rel="canonical" href="https://snip-and-search.netlify.app/" />
-		<!-- Tints Safari's toolbar/overscroll to match the indigo page. -->
+		<!-- Tints Safari's toolbar/overscroll to match the page background. -->
 		<meta name="theme-color" content="#2c2c2e" />
-		<!-- Self-hosted Lilita One (Latin subset, ~11 KB; @font-face in
-		     style.css), used for the headings. Preloaded so they render in it
-		     straight away. -->
-		<link
-			rel="preload"
-			href="fonts/LilitaOne-latin.woff2"
-			as="font"
-			type="font/woff2"
-			crossorigin
-		/>
 		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
@@ -61,7 +51,8 @@
 				/>
 				<h1>
 					<span class="visuallyHidden">Snip &amp; Search</span>
-					<!-- The title in Lilita One, matching the portfolio project card
+					<!-- The "Snip & Search" wordmark in Lilita One (the only place it's
+					     used), matching the portfolio project card
 					     (Personal-Site/scripts/images/templates/snipAndSearch.html).
 					     viewBox crops tightly around the letters. -->
 					<svg
