@@ -58,21 +58,15 @@ header {
 /* The content is a white card with rounded corners on the dark page.
    overflow: hidden keeps everything inside the rounded corners. */
 main {
+	/* Fills the screen up to 760px wide, then stays 760px and centered while
+	   the dark gutters grow evenly on both sides, so the white area never
+	   shrinks as the window widens. */
+	max-width: 760px;
+	margin-inline: auto;
 	overflow: hidden;
 	border-radius: var(--card-radius);
 	background-color: var(--clr-bgMain);
 	color: var(--clr-text);
-}
-
-/* On wide screens the card is capped and centered, with the dark page on both
-   sides. (Below this width it spans the screen; the cap would only leave
-   thin slivers.) Everything inside shares one centered 600px column, with
-   80px of white either side of it at full width. */
-@media (min-width: 840px) {
-	main {
-		max-width: 760px;
-		margin-inline: auto;
-	}
 }
 
 .sectionContent {
@@ -81,8 +75,8 @@ main {
 	padding: 1rem;
 }
 
-/* ~600px of text (roughly 60–70 characters a line at body size), so the column
-   doesn't look cramped beside the wider demo video. */
+/* One centered column for everything in the card: ~600px of text (roughly
+   60–70 characters a line at body size). */
 main .sectionContent {
 	max-width: 680px;
 	padding-inline: 2.5rem;
