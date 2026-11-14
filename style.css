@@ -218,12 +218,16 @@ a:hover {
    Shortcut" button on the page it opens. */
 .button {
 	font-size: 1.125rem;
-	display: inline-block;
+	/* Icon + label side by side. */
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5em;
 	margin-top: 3.25rem;
 	padding: 0.75rem 1.75rem;
 	background-color: var(--clr-accent);
 	color: #fff;
 	border-radius: 999px;
+	justify-content: center;
 	font-weight: 600;
 	font-family: inherit;
 	text-decoration: none;
@@ -233,25 +237,32 @@ a:hover {
 }
 
 /* The [hidden] attribute must win over the buttons' display. */
-.button[hidden],
-#sendToMac[hidden] {
+.button[hidden] {
 	display: none;
 }
 
-/* "Share/Copy link to your Mac" (non-Mac devices): icon + label. */
-#sendToMac {
-	display: inline-flex;
-	align-items: center;
-	gap: 0.5em;
-}
-
+/* Button icons: simple line icons drawn to match each other. */
 .btnIcon {
-	height: 1em;
-	fill: currentColor;
+	height: 1.05em;
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 2.4;
+	stroke-linecap: round;
+	stroke-linejoin: round;
 }
 
 .btnIcon[hidden] {
 	display: none;
+}
+
+/* Read by screen readers, not shown. */
+.srOnly {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
 }
 
 .button:hover {
