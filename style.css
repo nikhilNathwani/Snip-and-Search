@@ -230,6 +230,18 @@ h2 {
 	}
 }
 
+/* The sections below share that column's left edge (and the divider spans
+   its full width), but their text keeps a ~600px reading measure. */
+@media (min-width: 820px) {
+	#details > .sectionContent {
+		max-width: calc(680px + 8rem);
+	}
+
+	#details > .sectionContent > * {
+		max-width: 600px;
+	}
+}
+
 a {
 	color: var(--clr-link);
 	text-decoration: underline;
