@@ -17,7 +17,7 @@ fonts/          # Self-hosted Lilita One + its license
 og-image.png    # Social preview image
 ```
 
-The header title (Lilita One with a dashed "cut line" outline) matches the portfolio project card, `Personal-Site/scripts/images/templates/snipAndSearch.html`. Both parts are SVG paths in `index.html`: the outline is copied from that template, and the letters are Lilita One's glyph outlines (150px, 2px letter spacing, kerned) rather than live text, so every browser draws them identically inside the outline. If the title's wording or font changes, regenerate both (the outline with the template's trace script).
+The header title is Lilita One, matching the portfolio project card (`Personal-Site/scripts/images/templates/snipAndSearch.html`). It's an SVG path in `index.html`, Lilita One's glyph outlines (150px, 2px letter spacing, kerned) rather than live text, so every browser draws it identically. If the wording or font changes, regenerate the path.
 
 To preview locally, open `index.html` in a browser (or serve the folder with any static server, e.g. `npx http-server .`). Netlify publishes the repo as-is.
 
