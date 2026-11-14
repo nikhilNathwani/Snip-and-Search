@@ -186,8 +186,10 @@ header .sectionContent {
 }
 
 h2 {
-	font-weight: 700;
-	/* Kept well below #intro so section headings don't compete with it. */
+	/* One heading weight for the page (semibold, like #intro); size alone
+	   sets the hierarchy, kept well below #intro so section headings don't
+	   compete with it. */
+	font-weight: 600;
 	font-size: 1.3rem;
 	letter-spacing: -0.01em;
 	margin-block: 2.5rem 0.5rem;
