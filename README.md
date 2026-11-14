@@ -13,6 +13,7 @@ A single static page with no build step or dependencies:
 index.html      # Page content + meta/Open Graph tags
 style.css
 images/         # Shortcut icon (512px) + rounded favicon
+media/          # Demo video (compressed)
 og-image.png    # Social preview image
 ```
 
@@ -20,7 +21,7 @@ The header shows the shortcut's icon above its name, set in the page's system fo
 
 To preview locally, open `index.html` in a browser (or serve the folder with any static server, e.g. `npx http-server .`). Netlify publishes the repo as-is.
 
-The page's demo video is served from the repo's GitHub Release (`v1.0.0`), not from this folder: the files in `demo/` are gitignored (too large for the repo) and exist only locally.
+The page's demo video is `media/snip-and-search-demo.mp4`, served by Netlify with the rest of the site: a 570 KB re-encode (H.264, CRF 26, `+faststart`, no audio) of the full-quality original, which stays local and gitignored in `demo/` (it used to be served from the repo's GitHub Release, 4.4 MB with no caching). To re-encode: `ffmpeg -i demo/snip-and-search-demo.mp4 -c:v libx264 -preset slow -crf 26 -pix_fmt yuv420p -movflags +faststart -an media/snip-and-search-demo.mp4`.
 
 The shortcut icon is rebuilt at 512px to match the one Shortcuts shows (iCloud only serves a 150px copy): the SF Symbol `scissors` (semibold, rendered with AppKit) on the icon's indigo gradient (`#5C72C2` to `#425BB8`), sized and placed to match Apple's rendered icon. `favicon.png` is the same image with Apple's ~8% corner radius.
 

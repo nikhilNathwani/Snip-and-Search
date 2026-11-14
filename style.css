@@ -7,23 +7,27 @@
 	--clr-bgPage: #2c2c2e;
 	/* Color rule: indigo (the darkest color in the shortcut's icon) means
 	   either the shortcut itself (its icon) or "you can click this" (links
-	   and the Install button's text; 5.9:1 on white). Everything else is
-	   neutral, including headings, which use the page's charcoal, so the
-	   icon is the one block of color and links stand out. */
+	   and the Install button; 5.6:1 on the card). Everything else is
+	   neutral, including headings, so the icon is the one block of color and
+	   links stand out. */
 	--clr-indigo: #425bb8;
 	--clr-accent: var(--clr-indigo);
 	--clr-link: var(--clr-accent);
-	--clr-heading: var(--clr-bgPage);
-	--clr-border: #e3e3e8;
-	--clr-bgMain: white;
-	/* Corner radius of the white page card: 24px on phones, scaling with
+	/* The content card uses Apple's light-mode palette: its off-white
+	   (#f5f5f7, softer than pure white against the dark, glowing page) with
+	   Apple's primary text (#1d1d1f, 15:1) for headings and body, and its
+	   secondary grey (#6e6e73, 4.7:1) for captions and sub-points. */
+	--clr-bgMain: #f5f5f7;
+	--clr-text: #1d1d1f;
+	--clr-heading: var(--clr-text);
+	--clr-secondary: #6e6e73;
+	--clr-border: #dcdce0;
+	/* Corner radius of the content card: 24px on phones, scaling with
 	   width up to 40px on big monitors. */
 	--card-radius: clamp(1.5rem, 2.5vw, 2.5rem);
 	/* Breathing room inside the card above the headline and below the last
 	   line (equal at top and bottom): ~56px on phones, ~72px on desktop. */
 	--card-pad: clamp(2.75rem, 2rem + 2.5vw, 3.75rem);
-	--clr-text: #111;
-	--clr-subtitle: #555;
 }
 
 *,
@@ -58,6 +62,10 @@ body {
    (600) for headings and the button, and bold (700) for the product name
    alone. No italics. */
 body {
+	/* As on apple.com: grayscale antialiasing, so light text on the dark
+	   header renders crisp rather than heavy on Macs. */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
 		Helvetica, Arial, sans-serif;
 	font-size: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
@@ -70,11 +78,11 @@ header {
 	color: #fff;
 }
 
-/* The content is a white card with rounded corners on the dark page.
+/* The content is a light card with rounded corners on the dark page.
    overflow: hidden keeps everything inside the rounded corners. */
 main {
 	/* Fills the screen up to 760px wide, then stays 760px and centered while
-	   the dark gutters grow evenly on both sides, so the white area never
+	   the dark gutters grow evenly on both sides, so the card never
 	   shrinks as the window widens. */
 	max-width: 760px;
 	margin-inline: auto;
@@ -191,13 +199,12 @@ header .sectionContent {
 	margin-bottom: 1.75rem;
 	font-size: 1.25rem;
 	line-height: 1.45;
-	color: #333;
 }
 
 #caption {
 	margin-top: 0.75rem;
 	font-size: 0.85em;
-	color: #666;
+	color: var(--clr-secondary);
 }
 
 h2 {
@@ -339,7 +346,7 @@ li {
 
 .sublist {
 	font-size: 0.95em;
-	color: var(--clr-subtitle);
+	color: var(--clr-secondary);
 	list-style-type: dash-bullet;
 	padding-left: 2.5rem;
 	margin-top: 0.5rem;
