@@ -146,9 +146,10 @@ header .sectionContent {
 	color: #c7c7cc;
 }
 
-/* Sits tight under the title as one group; the button sits well below. */
+/* Sits close under the title as one group (with room for the "p"
+   descender above the Apple logo); the button sits well below. */
 #macSubtitle {
-	margin-top: 0.25rem;
+	margin-top: 0.625rem;
 }
 
 #appleLogo {
