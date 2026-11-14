@@ -19,6 +19,9 @@
 	/* Corner radius of the white page card: 24px on phones, scaling with
 	   width up to 40px on big monitors. */
 	--card-radius: clamp(1.5rem, 2.5vw, 2.5rem);
+	/* Breathing room inside the card above the headline and below the last
+	   line (equal at top and bottom): ~56px on phones, ~72px on desktop. */
+	--card-pad: clamp(2.75rem, 2rem + 2.5vw, 3.75rem);
 	--clr-text: #111;
 	--clr-subtitle: #555;
 }
@@ -91,7 +94,9 @@ main > .sectionContent {
 }
 
 #details {
-	padding-bottom: 1.5rem;
+	/* Less 0.5rem: the last line's own spacing makes up the difference, so
+	   the visible gap matches the top. */
+	padding-bottom: calc(var(--card-pad) - 0.5rem);
 }
 
 #details > .sectionContent::before {
@@ -167,7 +172,7 @@ header .sectionContent {
    wider screens all of it breaks out of the text column together, so the
    headline's left edge lines up with the video's. */
 #intro {
-	margin-block: 3rem 0.75rem;
+	margin-block: var(--card-pad) 0.75rem;
 	/* Semibold system font, so it reads as a statement rather than a second
 	   logo; Lilita One is reserved for the "Snip & Search" wordmark. */
 	font-weight: 600;
