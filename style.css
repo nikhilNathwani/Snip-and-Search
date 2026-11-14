@@ -66,10 +66,11 @@ main {
 
 /* On wide screens the card is capped and centered, with the dark page on both
    sides. (Below this width it spans the screen; the cap would only leave
-   thin slivers.) */
-@media (min-width: 1000px) {
+   thin slivers.) Everything inside shares one centered 600px column, with
+   80px of white either side of it at full width. */
+@media (min-width: 840px) {
 	main {
-		max-width: 920px;
+		max-width: 760px;
 		margin-inline: auto;
 	}
 }
@@ -168,9 +169,7 @@ header .sectionContent {
 }
 
 /* The pitch + demo are the page's centerpiece: a big left-aligned headline
-   (the page's largest text), a one-sentence explanation, then the video. On
-   wider screens all of it breaks out of the text column together, so the
-   headline's left edge lines up with the video's. */
+   (the page's largest text), a one-sentence explanation, then the video. */
 #intro {
 	margin-block: var(--card-pad) 0.75rem;
 	/* Semibold system font, so it reads as a statement rather than a second
@@ -216,30 +215,6 @@ h2 {
 	border: 1px solid var(--clr-border);
 	border-radius: 10px;
 	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
-}
-
-/* The headline, sentence, video and caption share one wider column. */
-@media (min-width: 820px) {
-	#intro,
-	#introSub,
-	#demo,
-	#caption {
-		width: calc(100% + 8rem);
-		max-width: none;
-		margin-inline: -4rem;
-	}
-}
-
-/* The sections below share that column's left edge (and the divider spans
-   its full width), but their text keeps a ~600px reading measure. */
-@media (min-width: 820px) {
-	#details > .sectionContent {
-		max-width: calc(680px + 8rem);
-	}
-
-	#details > .sectionContent > * {
-		max-width: 600px;
-	}
 }
 
 a {
