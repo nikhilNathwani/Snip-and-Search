@@ -80,6 +80,8 @@ main {
 	margin-inline: auto;
 	overflow: hidden;
 	border-radius: var(--card-radius);
+	/* Floats in front of the glowing background rather than looking cut in. */
+	box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
 	background-color: var(--clr-bgMain);
 	color: var(--clr-text);
 }
