@@ -363,11 +363,11 @@ kbd {
 }
 
 /* Footer: quiet fine print on the dark page below the card, as on Apple's
-   pages: 12px, the same grey as the header details, links underlined only
+   pages: 14px, the same grey as the header details, links underlined only
    on hover, separated by a thin divider. */
 footer {
 	padding-block: 1.5rem 2rem;
-	font-size: 0.75rem;
+	font-size: 0.875rem; /* 14px, the caption size */
 	letter-spacing: 0;
 	color: var(--clr-secondaryOnDark);
 	text-align: center;
