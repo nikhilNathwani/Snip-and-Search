@@ -342,22 +342,22 @@ li {
 	margin-bottom: 0.75rem;
 }
 
-/* Nested lists for sub-items */
-@counter-style dash-bullet {
-	system: cyclic;
-	symbols: "-";
-	suffix: "  ";
-}
-
-.sublist {
+/* A step's supporting detail: its own line in secondary grey, aligned with
+   the step's text (no bullet), as in Apple's support articles. */
+.stepDetail {
+	display: block;
+	margin-top: 0.25rem;
 	color: var(--clr-secondary);
-	list-style-type: dash-bullet;
-	padding-left: 2.5rem;
-	margin-top: 0.5rem;
 }
 
-.sublist li {
-	margin-bottom: 0.25rem;
+/* The line after the numbered steps ("That's it: …") sits apart from them. */
+ol + p {
+	margin-top: 1.25rem;
+}
+
+/* Key combinations shown as the Mac's own symbols, in the body font. */
+kbd {
+	font: inherit;
 }
 
 /* Footer sits on the dark page below the card. */
