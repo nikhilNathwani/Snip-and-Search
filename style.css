@@ -172,7 +172,7 @@ header .sectionContent {
    At the body size (17px), as the name's subtitle; the "Free" line under
    the button stays at the 14px fine-print size. */
 #macSubtitle {
-	margin-top: 0.625rem;
+	margin-top: 0.6875rem;
 	font-size: 1.0625rem;
 }
 
@@ -335,7 +335,9 @@ a:hover {
 
 /* Small reassurance under the button (style shared with #macSubtitle). */
 #ctaNote {
-	margin-top: 0.875rem;
+	/* Visibly ~12px under the button: the same tight gap as the name and
+	   its subtitle, since the note belongs to the button just as closely. */
+	margin-top: 0.4375rem;
 }
 
 ul,
