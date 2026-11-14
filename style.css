@@ -14,12 +14,12 @@
 }
 
 :root {
-	/* Page background: a neutral near-black (Apple's dark grey), so the
-	   shortcut's indigo icon in the header pops and the white logo and text
-	   stay crisp (white on it is 17:1). Solid, so every area Safari fills to
+	/* Page background: a neutral charcoal (Apple's dark grey #2C2C2E), so
+	   the shortcut's indigo icon in the header pops and the white logo and
+	   text stay crisp (white on it is 14:1). Solid, so every area Safari fills to
 	   match the page (overscroll, landscape side areas, toolbar tint via
 	   theme-color) is the same color. */
-	--clr-bgPage: #1c1c1e;
+	--clr-bgPage: #2c2c2e;
 	/* Color rule: indigo (the darkest color in the shortcut's icon) means
 	   either the shortcut itself (its icon) or "you can click this" (links
 	   and the Install button's text; 5.9:1 on white). Everything else is
