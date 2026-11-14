@@ -232,8 +232,25 @@ a:hover {
 	transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-/* The [hidden] attribute must win over .button's display. */
-.button[hidden] {
+/* The [hidden] attribute must win over the buttons' display. */
+.button[hidden],
+#sendToMac[hidden] {
+	display: none;
+}
+
+/* "Share/Copy link to your Mac" (non-Mac devices): icon + label. */
+#sendToMac {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5em;
+}
+
+.btnIcon {
+	height: 1em;
+	fill: currentColor;
+}
+
+.btnIcon[hidden] {
 	display: none;
 }
 

@@ -75,9 +75,31 @@
 				</a>
 				<!-- Shown instead of the Install link on iPhone, iPad, Android and
 				     Windows (see the script at the end), where the shortcut can't
-				     run: sends this page to the visitor's Mac. -->
+				     run: shares or copies this page's link for the visitor's Mac. -->
 				<button id="sendToMac" class="button" type="button" hidden>
-					Send to my Mac
+					<!-- Font Awesome Free 6.5.2 icons (share and copy) by @fontawesome
+					     - https://fontawesome.com License -
+					     https://fontawesome.com/license/free (Icons: CC BY 4.0)
+					     Copyright 2024 Fonticons, Inc. The script shows the one that
+					     matches what the button will do. -->
+					<svg
+						class="btnIcon shareIcon"
+						viewBox="0 0 448 512"
+						aria-hidden="true"
+						focusable="false"
+					>
+						<path d="M246.6 9.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 109.3 192 320c0 17.7 14.3 32 32 32s32-14.3 32-32l0-210.7 73.4 73.4c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-128-128zM64 352c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 64c0 53 43 96 96 96l256 0c53 0 96-43 96-96l0-64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 64c0 17.7-14.3 32-32 32L96 448c-17.7 0-32-14.3-32-32l0-64z" />
+					</svg>
+					<svg
+						class="btnIcon copyIcon"
+						viewBox="0 0 448 512"
+						aria-hidden="true"
+						focusable="false"
+						hidden
+					>
+						<path d="M384 336H192c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16l140.1 0L400 115.9V320c0 8.8-7.2 16-16 16zM192 384H384c35.3 0 64-28.7 64-64V115.9c0-12.7-5.1-24.9-14.1-33.9L366.1 14.1c-9-9-21.2-14.1-33.9-14.1H192c-35.3 0-64 28.7-64 64V320c0 35.3 28.7 64 64 64zM64 128c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H256c35.3 0 64-28.7 64-64V416H272v32c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V192c0-8.8 7.2-16 16-16H96V128H64z" />
+					</svg>
+					<span class="btnLabel">Share link to your Mac</span>
 				</button>
 				<p id="ctaNote">Free · No sign-up · macOS 12+</p>
 			</div>
@@ -218,7 +240,7 @@
 				new Date().getFullYear();
 
 			// Not on a Mac? The shortcut only runs on macOS, so swap "Install
-			// shortcut" for "Send to my Mac". Only devices that positively identify
+			// shortcut" for a button that shares or copies this page's link. Only devices that positively identify
 			// as iPhone, iPad, Android or Windows switch; anything ambiguous keeps
 			// the Install link, so a Mac is never shown the wrong button. iPadOS
 			// Safari reports itself as a Mac, but (unlike any Mac) has a touchscreen.
@@ -229,17 +251,24 @@
 
 				const install = document.querySelector("header a.button");
 				const send = document.getElementById("sendToMac");
+				const label = send.querySelector(".btnLabel");
 				install.hidden = true;
 				send.hidden = false;
-				document.getElementById("ctaNote").textContent =
-					"Runs on Mac (macOS 12+) · Free · No sign-up";
 				document.querySelector(".onlyNonMac").hidden = false;
 				document.querySelector(".onlyMac").hidden = true;
 
+				// Say exactly what tapping will do: open the share sheet (AirDrop,
+				// Messages, Mail…) where there is one, otherwise copy the link.
+				const canShare = !!navigator.share;
+				const idle = canShare ? "Share link to your Mac" : "Copy link for your Mac";
+				label.textContent = idle;
+				// (SVG elements have no .hidden property, so toggle the attribute.)
+				send.querySelector(".shareIcon").toggleAttribute("hidden", !canShare);
+				send.querySelector(".copyIcon").toggleAttribute("hidden", canShare);
+
 				const url = location.origin + location.pathname;
 				send.addEventListener("click", async () => {
-					// Share sheet (AirDrop, Messages, Mail…) where available.
-					if (navigator.share) {
+					if (canShare) {
 						try {
 							await navigator.share({ title: "Snip & Search", url });
 							return;
@@ -247,11 +276,10 @@
 							if (e.name === "AbortError") return; // closed the sheet
 						}
 					}
-					// Otherwise copy the link.
 					try {
 						await navigator.clipboard.writeText(url);
-						send.textContent = "Link copied";
-						setTimeout(() => (send.textContent = "Send to my Mac"), 2000);
+						label.textContent = "Link copied";
+						setTimeout(() => (label.textContent = idle), 2000);
 					} catch {
 						prompt("Copy this link and open it on your Mac:", url);
 					}
